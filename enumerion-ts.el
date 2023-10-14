@@ -91,11 +91,7 @@
     (treesit-parser-create 'enumerion)
     (enumerion-ts-setup)))
 
-(setq auto-mode-alist
-      (append '(("\\.enum$" . enumerion-ts-mode))
-              auto-mode-alist))
 
-
-(provide 'enumerion-ts-mode)
+(provide 'enumerion-ts)
 
 ;;; enumerion-ts.el ends here
