@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.1
+;; Version: 1.0.2
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -47,23 +47,46 @@
 
     :language enumerion
     :override t
-    :feature keyword
-    ((check) @font-lock-keyword-face)
+    :feature toplevel
+    ((check) @font-lock-builtin-face)
 
     :language enumerion
     :override t
-    :feature type-builtin
+    :feature type
     ((nat) @font-lock-type-face
      (fin) @font-lock-type-face
      (finite) @font-lock-type-face
      (enum) @font-lock-type-face
+     (prod) @font-lock-type-face
      )
 
     :language enumerion
     :override t
+    :feature keyword
+    ((lambda) @font-lock-keyword-face)
+
+    :language enumerion
+    :override t
+    :feature delimiter
+    ((colon) @font-lock-delimiter-face
+     (comma) @font-lock-delimiter-face)
+
+    :language enumerion
+    :override t
+    :feature operator
+    ((arrow) @font-lock-operator-face
+     (darrow) @font-lock-delimiter-face)
+    
+    :language enumerion
+    :override t
+    :feature bracket
+    ((lparen) @font-lock-bracket-face
+     (rparen) @font-lock-bracket-face)
+    
+    :language enumerion
+    :override t
     :feature numeral
     ((number) @font-lock-number-face)
-
     )
   )
 
@@ -72,9 +95,10 @@
   ;; Our tree-sitter setup goes here.
 
   (setq-local treesit-font-lock-feature-list
-              '((comment)
-                (keyword type-builtin)
-                (numeral)))
+              '((comment toplevel)
+                (type keyword)
+                (numeral)
+		(delimiter bracket)))
 
   (setq-local treesit-font-lock-settings
               (apply #'treesit-font-lock-rules
