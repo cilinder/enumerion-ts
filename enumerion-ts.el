@@ -48,7 +48,13 @@
     :language enumerion
     :override t
     :feature toplevel
-    ((check) @font-lock-builtin-face)
+    ((load) @font-lock-builtin-face
+     (definition) @font-lock-builtin-face
+     (check) @font-lock-builtin-face
+     (compile) @font-lock-builtin-face
+     (eval) @font-lock-builtin-face
+     (axiom) @font-lock-builtin-face
+     (clear) @font-lock-builtin-face)
 
     :language enumerion
     :override t
@@ -58,30 +64,69 @@
      (finite) @font-lock-type-face
      (enum) @font-lock-type-face
      (prod) @font-lock-type-face
+     (exists) @font-lock-type-face
+     (forall) @font-lock-type-face
+     (stream) @font-lock-type-face
+     (structure) @font-lock-type-face
+     (variant) @font-lock-type-face
      )
 
     :language enumerion
     :override t
     :feature keyword
-    ((lambda) @font-lock-keyword-face)
+    ((lambda) @font-lock-keyword-face
+     (match) @font-lock-keyword-face
+     (with) @font-lock-keyword-face
+     (size) @font-lock-keyword-face
+     (enumerate) @font-lock-keyword-face
+     (begin) @font-lock-keyword-face
+     (end) @font-lock-keyword-face
+     )
+
+    :language enumerion
+    :override t
+    :feature constant
+    ((true_const) @font-lock-constant-face
+     (false_const) @font-lock-constant-face)
+
+    :language enumerion
+    :override t
+    :feature backtick
+    ((backtick) @font-lock-delimiter-face)
 
     :language enumerion
     :override t
     :feature delimiter
     ((colon) @font-lock-delimiter-face
-     (comma) @font-lock-delimiter-face)
+     (comma) @font-lock-delimiter-face
+     (coloneq) @font-lock-delimiter-face
+     (vbar) @font-lock-delimiter-face
+     (period) @font-lock-delimiter-face)
 
     :language enumerion
     :override t
     :feature operator
     ((arrow) @font-lock-operator-face
-     (darrow) @font-lock-delimiter-face)
+     (darrow) @font-lock-delimiter-face
+     (lor) @font-lock-delimiter-face
+     (land) @font-lock-delimiter-face
+     (not) @font-lock-delimiter-face
+     (lt) @font-lock-delimiter-face
+     (leq) @font-lock-delimiter-face
+     (equal) @font-lock-delimiter-face
+     (plus) @font-lock-delimiter-face
+     (minus) @font-lock-delimiter-face
+     (times) @font-lock-delimiter-face
+     (divide) @font-lock-delimiter-face
+     (pow) @font-lock-delimiter-face)
     
     :language enumerion
     :override t
     :feature bracket
     ((lparen) @font-lock-bracket-face
-     (rparen) @font-lock-bracket-face)
+     (rparen) @font-lock-bracket-face
+     (lbrace) @font-lock-bracket-face
+     (rbrace) @font-lock-bracket-face)
     
     :language enumerion
     :override t
@@ -97,7 +142,7 @@
   (setq-local treesit-font-lock-feature-list
               '((comment toplevel)
                 (type keyword)
-                (numeral)
+                (numeral backtick constant)
 		(delimiter bracket)))
 
   (setq-local treesit-font-lock-settings
