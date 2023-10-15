@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.3
+;; Version: 1.0.4
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -48,13 +48,13 @@
     :language enumerion
     :override t
     :feature toplevel
-    ((load) @font-lock-builtin-face
-     (definition) @font-lock-builtin-face
-     (check) @font-lock-builtin-face
-     (compile) @font-lock-builtin-face
-     (eval) @font-lock-builtin-face
-     (axiom) @font-lock-builtin-face
-     (clear) @font-lock-builtin-face)
+    ((load) @font-lock-keyword-face
+     (definition) @font-lock-keyword-face
+     (check) @font-lock-keyword-face
+     (compile) @font-lock-keyword-face
+     (eval) @font-lock-keyword-face
+     (axiom) @font-lock-keyword-face
+     (clear) @font-lock-keyword-face)
 
     :language enumerion
     :override t
@@ -74,7 +74,7 @@
     :language enumerion
     :override t
     :feature keyword
-    ((lambda) @font-lock-keyword-face
+    ((fun) @font-lock-keyword-face
      (match) @font-lock-keyword-face
      (with) @font-lock-keyword-face
      (size) @font-lock-keyword-face
@@ -131,7 +131,7 @@
     :language enumerion
     :override t
     :feature numeral
-    ((number) @font-lock-number-face)
+    ((numeral) @font-lock-number-face)
     )
   )
 
