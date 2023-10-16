@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.5
+;; Version: 1.0.6
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -145,6 +145,14 @@
   (setq-local treesit-font-lock-settings
               (apply #'treesit-font-lock-rules
                      enumerion-ts-font-lock-rules))
+  ;; Set up indentation rules for enumerion
+  (setq-local treesit-simple-indent-rules
+	    `((enumerion
+	       ((parent-is "source_file") parent-bol 0)
+	       ((match "rbrace" "structure_expr" nil nil nil) grand-parent 0)
+	       ((match "lbrace" "structure_expr" nil nil nil) grand-parent 0)
+	       ((parent-is "structure_expr") parent 2)
+		(no-node parent 0))))
 
   ;; End with this
   (treesit-major-mode-setup))
