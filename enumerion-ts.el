@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.4
+;; Version: 1.0.5
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -68,20 +68,18 @@
      (forall) @font-lock-type-face
      (stream) @font-lock-type-face
      (structure) @font-lock-type-face
-     (variant) @font-lock-type-face
-     )
+     (variant) @font-lock-type-face)
 
     :language enumerion
     :override t
     :feature keyword
     ((fun) @font-lock-keyword-face
      (match) @font-lock-keyword-face
-     (with) @font-lock-keyword-face
+     (with_keyword) @font-lock-keyword-face
      (size) @font-lock-keyword-face
      (enumerate) @font-lock-keyword-face
      (begin) @font-lock-keyword-face
-     (end) @font-lock-keyword-face
-     )
+     (end) @font-lock-keyword-face)
 
     :language enumerion
     :override t
@@ -104,13 +102,12 @@
      (period) @font-lock-delimiter-face)
 
     :language enumerion
-    :override t
     :feature operator
     ((arrow) @font-lock-operator-face
      (darrow) @font-lock-delimiter-face
      (lor) @font-lock-delimiter-face
      (land) @font-lock-delimiter-face
-     (not) @font-lock-delimiter-face
+     (neg) @font-lock-delimiter-face
      (lt) @font-lock-delimiter-face
      (leq) @font-lock-delimiter-face
      (equal) @font-lock-delimiter-face
@@ -142,7 +139,7 @@
   (setq-local treesit-font-lock-feature-list
               '((comment toplevel)
                 (type keyword)
-                (numeral backtick constant)
+                (numeral backtick constant operator)
 		(delimiter bracket)))
 
   (setq-local treesit-font-lock-settings
