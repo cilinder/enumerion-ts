@@ -51,7 +51,7 @@
     ((load) @font-lock-keyword-face
      (definition) @font-lock-keyword-face
      (check) @font-lock-keyword-face
-     (compile) @font-lock-keyword-face
+     (enumerate) @font-lock-keyword-face
      (eval) @font-lock-keyword-face
      (axiom) @font-lock-keyword-face
      (clear) @font-lock-keyword-face)
@@ -62,11 +62,12 @@
     ((nat) @font-lock-type-face
      (fin) @font-lock-type-face
      (finite) @font-lock-type-face
+     (theory_type) @font-lock-type-face
      (enum) @font-lock-type-face
      (prod) @font-lock-type-face
      (exists) @font-lock-type-face
      (forall) @font-lock-type-face
-     (stream) @font-lock-type-face
+     (theory) @font-lock-type-face
      (structure) @font-lock-type-face
      (variant) @font-lock-type-face)
 
@@ -77,7 +78,6 @@
      (match) @font-lock-keyword-face
      (with_keyword) @font-lock-keyword-face
      (size) @font-lock-keyword-face
-     (enumerate) @font-lock-keyword-face
      (begin) @font-lock-keyword-face
      (end) @font-lock-keyword-face)
 
