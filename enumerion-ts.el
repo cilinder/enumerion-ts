@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.6
+;; Version: 1.0.7
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -61,6 +61,7 @@
     :feature type
     ((nat) @font-lock-type-face
      (fin) @font-lock-type-face
+     (prop) @font-lock-type-face
      (finite) @font-lock-type-face
      (theory_type) @font-lock-type-face
      (enum) @font-lock-type-face
