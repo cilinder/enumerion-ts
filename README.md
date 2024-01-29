@@ -47,3 +47,10 @@ To set the mode to automatically activate with Enumerion files add this to your 
 	(append '(("\\.enum$" . enumerion-ts-mode))
 		auto-mode-alist))
 ```
+
+
+## Update
+
+To update the package you can use the command `package-vc-upgrade` in emacs and select `enumerion-ts`.
+
+To update the language grammar, use the command `treesit-install-language-grammar` and select `enumerion`.
