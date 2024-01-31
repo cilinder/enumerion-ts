@@ -167,6 +167,9 @@
     (define-key map "\C-c\C-e" #'enumerion-repl-send-statement)
     map)
     "Basic mode map for `enumerion-repl'.")
+  ;; End with this
+  (treesit-major-mode-setup))
+
 
 (defvar-local enumerion-ts--overlays (make-hash-table :test #'eq))
   
@@ -214,8 +217,13 @@
 ;;; Begnning of Enumerion REPL things.
 ;;; ######################################################
 
+(defgroup general nil
+  "General settings for Enumerion REPL")
+
 (defcustom enumerion-repl-file-path "enumerion.exe"
-  "Path to the program used by `enumerion-repl'")
+  "Path to the program used by `enumerion-repl'"
+  :type 'string
+  :group 'general)
 
 (defvar enumerion-repl-cli-arguments '()
   "Commandline arguments to pass to `enumerion-repl'.")
@@ -242,8 +250,7 @@
   (interactive)
   (let* ((enumerion-program enumerion-repl-file-path)
          (buffer (get-buffer-create enumerion-repl-buffer-name))
-         (proc-alive (comint-check-proc buffer))
-         (process (get-buffer-process buffer)))
+         (proc-alive (comint-check-proc buffer)))
     ;; if the process is dead then re-create the process and reset the
     ;; mode.
     (unless proc-alive
@@ -285,6 +292,10 @@
    ;; highlight all the reserved commands.
    `(,(concat "\\_<" (regexp-opt enumerion-keywords) "\\_>") . font-lock-keyword-face))
   "Additional expressions to highlight in `enumerion-mode'.")
+
+(defvar enumerion-repl-output-filter-in-progress nil)
+(defvar enumerion-repl-output-filter-buffer nil)
+
 
 (defun enumerion-repl-get-process-name (dedicated)
   "Calculate the appropriate process name for inferior Enumerion process.
@@ -412,17 +423,11 @@ retrieved using `enumerion-shell-buffer-substring'."
      (insert string)
      (comint-send-input))))
 
-(defvar enumerion-repl-output-filter-in-progress nil)
-(defvar enumerion-repl-output-filter-buffer nil)
-
 (defun enumerion-info-encoding ()
   "Return encoding for file.
 default to utf-8."
   ;; If no encoding is defined, then it's safe to use UTF-8.
   'utf-8)
-
-;; End with this
-(treesit-major-mode-setup))
 
 (provide 'enumerion-ts)
 
