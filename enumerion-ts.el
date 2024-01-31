@@ -157,7 +157,10 @@
 	       ((parent-is "structure_expr") parent 2)
 		(no-node parent 0))))
 
-  (defvar enumerion-ts-mode-map
+  ;; End with this
+  (treesit-major-mode-setup))
+
+(defvar enumerion-ts-mode-map
     (let ((map (make-sparse-keymap)))
     ;; example definition
     (define-key map "\t" 'completion-at-point)
@@ -167,9 +170,6 @@
     (define-key map "\C-c\C-e" #'enumerion-repl-send-statement)
     map)
     "Basic mode map for `enumerion-repl'.")
-  ;; End with this
-  (treesit-major-mode-setup))
-
 
 (defvar-local enumerion-ts--overlays (make-hash-table :test #'eq))
   
