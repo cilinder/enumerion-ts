@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.7
+;; Version: 1.0.8
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
