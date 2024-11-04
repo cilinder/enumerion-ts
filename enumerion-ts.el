@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.8
+;; Version: 1.0.9
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -163,7 +163,6 @@
 (defvar enumerion-ts-mode-map
     (let ((map (make-sparse-keymap)))
     ;; example definition
-    (define-key map "\t" 'completion-at-point)
     (define-key map "\C-c\C-p" #'enumerion-repl)
     (define-key map "\C-c\C-r" #'enumerion-repl-send-region)
     (define-key map "\C-c\C-s" #'enumerion-repl-send-string)
