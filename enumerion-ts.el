@@ -3,7 +3,7 @@
 ;; Author: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Maintainer: Jure Taslak <jure.taslak@fmf.uni-lj.si>
 ;; Created: 14 October 2023
-;; Version: 1.0.10
+;; Version: 1.0.11
 ;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: enumerion tree-sitter
 ;; Homepage: https://github.com/cilinder/enumerion-ts
@@ -155,7 +155,10 @@
 	       ((match "rbrace" "structure_expr" nil nil nil) grand-parent 0)
 	       ((match "lbrace" "structure_expr" nil nil nil) grand-parent 0)
 	       ((parent-is "structure_expr") grand-parent 2)
-		(no-node parent 0))))
+               ((match "rbrace" "variant_expr" nil nil nil) grand-parent 0)
+	       ((match "lbrace" "variant_expr" nil nil nil) grand-parent 0)
+	       ((parent-is "variant_expr") grand-parent 2)
+	       (no-node parent 0))))
 
   ;; End with this
   (treesit-major-mode-setup))
